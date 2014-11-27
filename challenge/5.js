@@ -3,7 +3,7 @@ var fs = require('fs');
 var Buffer = require('buffer').Buffer;
 
 
-var readStream = fs.createReadStream('red.jpg');
+var readStream = fs.createReadStream('red.png');
 
 readStream.on('readable', function() {
 	var chunk;
@@ -17,27 +17,30 @@ readStream.on('readable', function() {
 
 var processBuffer = function(buff) {
 	console.log('lenght:', buff.length);
-	for (var i = 2; i < buff.length; i++) {
+
+	console.log('PNG        :', buff.toString('hex', 0, 8));  
+
+	console.log('???        :', buff.toString('hex', 8, 12));  
+
+	// End of header
+
+    console.log('IHDR       :', buff.toString('hex' , 12 , 18 ));  
+
+
+    console.log('W          :', buff.toString('hex' , 16 , 20 ));  
+    console.log('H           :', buff.toString('hex' , 20 , 24 ));  
+
+	//console.log('w          :', buff.readUInt32BE(18));  
+	//console.log('w          :', buff.readUInt32BE(24));  
+
+	
+
+	//console.log(buff)
+	for (var i = 0; i < buff.length; i++) {
 		//console.log('->:', buff.readUInt8(i).toString(16));
 		//buff[i]
 		//if(i > 5) break;;
 	};
-
-	var offset;
-	var amount;
-	console.log('start      :', buff.toString('hex', 0, 2));  
-
-	console.log('code       :', buff.toString('hex' , 2 , 4 ));  
-	console.log('longueur   :', buff.toString('hex' , 4 , 6 ));  
-	console.log('identifiant:', buff.toString('utf8', 6 , 12));  
-	console.log('version    :', buff.toString('hex' , 12, 14));  
-	console.log('densité    :', buff.toString('hex' , 14, 15));  
-	console.log('densité X  :', buff.toString('hex' , 15, 17));  
-	console.log('densité Y  :', buff.toString('hex' , 17, 19));  
-	console.log('tw         :', parseInt(buff.toString('hex' , 19, 20), 16));  
-	console.log('th         :', parseInt(buff.toString('hex' , 20, 21), 16));
-	console.log('t data     :', buff.toString('hex' , 21, 21));  
-	console.log('??????     :', buff.toString('hex' , 22, 60));  
 
 
 
