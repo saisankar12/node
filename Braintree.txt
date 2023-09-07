@@ -1,0 +1,17 @@
+hi, hope you are doing good. I need some help from you. 
+
+you have created issue with app rejected in playstore due
+
+to Braintree data collecter version 
+
+https://github.com/braintree/braintree_android/issues/783#issue-1885478948
+
+same issue we are facing now.
+
+So, is 3.21.0 working fine. and what are the chnages you made it. 
+
+is your app got published in playstore.
+
+this is my mail id :- saisankar75@gmail.com
+
+please help me on this. 
